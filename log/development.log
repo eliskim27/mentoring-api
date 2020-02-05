@@ -1,0 +1,209 @@
+  [1m[35m (2.4ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (1.3ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (1.5ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY)[0m
+  [1m[35m (2.0ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateMentees (20200205173052)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (1.0ms)[0m  [1m[35mCREATE TABLE "mentees" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "first" varchar, "last" varchar, "email" varchar, "location" varchar, "age" integer, "gender" varchar, "bio" varchar, "usertype" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mprimary::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20200205173052"]]
+  [1m[35m (1.2ms)[0m  [1m[36mcommit transaction[0m
+Migrating to CreateMentors (20200205174255)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.8ms)[0m  [1m[35mCREATE TABLE "mentors" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "first" varchar, "last" varchar, "email" varchar, "location" varchar, "age" integer, "gender" varchar, "bio" varchar, "usertype" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mprimary::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20200205174255"]]
+  [1m[35m (0.9ms)[0m  [1m[36mcommit transaction[0m
+Migrating to CreateConnections (20200205174537)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.8ms)[0m  [1m[35mCREATE TABLE "connections" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "menteeid" integer, "mentorid" integer, "status" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mprimary::SchemaMigration Create (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20200205174537"]]
+  [1m[35m (0.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.8ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["key", "environment"], ["value", "development"], ["created_at", "2020-02-05 17:52:42.979143"], ["updated_at", "2020-02-05 17:52:42.979143"]]
+  [1m[35m (1.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (1.5ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateConnections (20200205174537)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (1.8ms)[0m  [1m[35mDROP TABLE "connections"[0m
+  [1m[36mprimary::SchemaMigration Destroy (0.6ms)[0m  [1m[31mDELETE FROM "schema_migrations" WHERE "schema_migrations"."version" = ?[0m  [["version", "20200205174537"]]
+  [1m[35m (1.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateConnections (20200205174537)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.8ms)[0m  [1m[35mCREATE TABLE "connections" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "mentee_id" integer, "mentor_id" integer, "status" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mprimary::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20200205174537"]]
+  [1m[35m (1.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mMentee Load (0.1ms)[0m  [1m[34mSELECT "mentees".* FROM "mentees"[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mMentee Create (0.5ms)[0m  [1m[32mINSERT INTO "mentees" ("first", "last", "email", "location", "age", "gender", "bio", "usertype", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["first", "Danyell"], ["last", "Stehr"], ["email", "email@email.com"], ["location", "AR"], ["age", 27], ["gender", "Male"], ["bio", "Use the wireless SAS feed, then you can calculate the mobile card!"], ["usertype", "mentee"], ["created_at", "2020-02-05 18:23:56.767044"], ["updated_at", "2020-02-05 18:23:56.767044"]]
+  [1m[35m (0.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mMentor Load (0.2ms)[0m  [1m[34mSELECT "mentors".* FROM "mentors"[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mMentor Create (0.3ms)[0m  [1m[32mINSERT INTO "mentors" ("first", "last", "email", "location", "age", "gender", "bio", "usertype", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["first", "Kacey"], ["last", "Kuhlman"], ["email", "email@email.com"], ["location", "WV"], ["age", 33], ["gender", "Female"], ["bio", "Use the optical TCP matrix, then you can generate the multi-byte firewall!"], ["usertype", "mentor"], ["created_at", "2020-02-05 18:23:56.783919"], ["updated_at", "2020-02-05 18:23:56.783919"]]
+  [1m[35m (0.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mMentor Create (0.3ms)[0m  [1m[32mINSERT INTO "mentors" ("first", "last", "email", "location", "age", "gender", "bio", "usertype", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["first", "Lynn"], ["last", "Hudson"], ["email", "email@email.com"], ["location", "MA"], ["age", 34], ["gender", "Male"], ["bio", "We need to transmit the primary TCP system!"], ["usertype", "mentor"], ["created_at", "2020-02-05 18:23:56.787936"], ["updated_at", "2020-02-05 18:23:56.787936"]]
+  [1m[35m (0.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mMentor Create (0.4ms)[0m  [1m[32mINSERT INTO "mentors" ("first", "last", "email", "location", "age", "gender", "bio", "usertype", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["first", "Taylor"], ["last", "Dickinson"], ["email", "email@email.com"], ["location", "ME"], ["age", 34], ["gender", "Male"], ["bio", "Use the auxiliary IB capacitor, then you can reboot the 1080p panel!"], ["usertype", "mentor"], ["created_at", "2020-02-05 18:23:56.792498"], ["updated_at", "2020-02-05 18:23:56.792498"]]
+  [1m[35m (1.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mMentor Create (0.4ms)[0m  [1m[32mINSERT INTO "mentors" ("first", "last", "email", "location", "age", "gender", "bio", "usertype", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["first", "Cleta"], ["last", "Spencer"], ["email", "email@email.com"], ["location", "MI"], ["age", 22], ["gender", "Male"], ["bio", "Calculating the driver won't do anything, we need to override the primary http system!"], ["usertype", "mentor"], ["created_at", "2020-02-05 18:23:56.799663"], ["updated_at", "2020-02-05 18:23:56.799663"]]
+  [1m[35m (0.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mMentor Create (0.3ms)[0m  [1m[32mINSERT INTO "mentors" ("first", "last", "email", "location", "age", "gender", "bio", "usertype", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["first", "Parker"], ["last", "Mayert"], ["email", "email@email.com"], ["location", "CO"], ["age", 50], ["gender", "Male"], ["bio", "Synthesizing the capacitor won't do anything, we need to compress the cross-platform ftp card!"], ["usertype", "mentor"], ["created_at", "2020-02-05 18:23:56.804217"], ["updated_at", "2020-02-05 18:23:56.804217"]]
+  [1m[35m (0.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mMentor Create (0.3ms)[0m  [1m[32mINSERT INTO "mentors" ("first", "last", "email", "location", "age", "gender", "bio", "usertype", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["first", "Michale"], ["last", "Klocko"], ["email", "email@email.com"], ["location", "WI"], ["age", 26], ["gender", "Male"], ["bio", "We need to reboot the back-end SMTP capacitor!"], ["usertype", "mentor"], ["created_at", "2020-02-05 18:23:56.808550"], ["updated_at", "2020-02-05 18:23:56.808550"]]
+  [1m[35m (0.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mMentor Create (0.5ms)[0m  [1m[32mINSERT INTO "mentors" ("first", "last", "email", "location", "age", "gender", "bio", "usertype", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["first", "Michel"], ["last", "Marvin"], ["email", "email@email.com"], ["location", "CT"], ["age", 32], ["gender", "Male"], ["bio", "Use the cross-platform SQL protocol, then you can synthesize the cross-platform port!"], ["usertype", "mentor"], ["created_at", "2020-02-05 18:23:56.813260"], ["updated_at", "2020-02-05 18:23:56.813260"]]
+  [1m[35m (1.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mMentor Create (0.4ms)[0m  [1m[32mINSERT INTO "mentors" ("first", "last", "email", "location", "age", "gender", "bio", "usertype", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["first", "Kristine"], ["last", "Kunde"], ["email", "email@email.com"], ["location", "ND"], ["age", 27], ["gender", "Female"], ["bio", "I'll hack the auxiliary GB firewall, that should firewall the TCP driver!"], ["usertype", "mentor"], ["created_at", "2020-02-05 18:23:56.819319"], ["updated_at", "2020-02-05 18:23:56.819319"]]
+  [1m[35m (0.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mMentor Create (0.4ms)[0m  [1m[32mINSERT INTO "mentors" ("first", "last", "email", "location", "age", "gender", "bio", "usertype", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["first", "Man"], ["last", "Heaney"], ["email", "email@email.com"], ["location", "AZ"], ["age", 37], ["gender", "Male"], ["bio", "I'll parse the cross-platform GB firewall, that should driver the FTP microchip!"], ["usertype", "mentor"], ["created_at", "2020-02-05 18:23:56.824090"], ["updated_at", "2020-02-05 18:23:56.824090"]]
+  [1m[35m (0.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mMentor Create (0.5ms)[0m  [1m[32mINSERT INTO "mentors" ("first", "last", "email", "location", "age", "gender", "bio", "usertype", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["first", "Barbie"], ["last", "Zulauf"], ["email", "email@email.com"], ["location", "WA"], ["age", 32], ["gender", "Female"], ["bio", "I'll quantify the back-end SSL pixel, that should circuit the AI feed!"], ["usertype", "mentor"], ["created_at", "2020-02-05 18:23:56.828746"], ["updated_at", "2020-02-05 18:23:56.828746"]]
+  [1m[35m (0.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mMentor Create (0.3ms)[0m  [1m[32mINSERT INTO "mentors" ("first", "last", "email", "location", "age", "gender", "bio", "usertype", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["first", "Lowell"], ["last", "McCullough"], ["email", "email@email.com"], ["location", "MD"], ["age", 35], ["gender", "Female"], ["bio", "Use the redundant AGP matrix, then you can transmit the open-source firewall!"], ["usertype", "mentor"], ["created_at", "2020-02-05 18:23:56.833350"], ["updated_at", "2020-02-05 18:23:56.833350"]]
+  [1m[35m (1.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mMentor Create (0.4ms)[0m  [1m[32mINSERT INTO "mentors" ("first", "last", "email", "location", "age", "gender", "bio", "usertype", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["first", "Lloyd"], ["last", "Wolf"], ["email", "email@email.com"], ["location", "NY"], ["age", 23], ["gender", "Female"], ["bio", "If we navigate the matrix, we can get to the SMS microchip through the multi-byte COM protocol!"], ["usertype", "mentor"], ["created_at", "2020-02-05 18:23:56.842083"], ["updated_at", "2020-02-05 18:23:56.842083"]]
+  [1m[35m (0.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mMentor Create (1.0ms)[0m  [1m[32mINSERT INTO "mentors" ("first", "last", "email", "location", "age", "gender", "bio", "usertype", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["first", "Gillian"], ["last", "Cole"], ["email", "email@email.com"], ["location", "RI"], ["age", 45], ["gender", "Male"], ["bio", "I'll hack the back-end XSS circuit, that should capacitor the PCI protocol!"], ["usertype", "mentor"], ["created_at", "2020-02-05 18:23:56.848019"], ["updated_at", "2020-02-05 18:23:56.848019"]]
+  [1m[35m (1.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mMentor Create (0.4ms)[0m  [1m[32mINSERT INTO "mentors" ("first", "last", "email", "location", "age", "gender", "bio", "usertype", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["first", "Shaunta"], ["last", "Hudson"], ["email", "email@email.com"], ["location", "TX"], ["age", 25], ["gender", "Female"], ["bio", "Use the open-source CSS pixel, then you can input the primary firewall!"], ["usertype", "mentor"], ["created_at", "2020-02-05 18:23:56.877254"], ["updated_at", "2020-02-05 18:23:56.877254"]]
+  [1m[35m (0.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mMentor Create (0.4ms)[0m  [1m[32mINSERT INTO "mentors" ("first", "last", "email", "location", "age", "gender", "bio", "usertype", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["first", "Socorro"], ["last", "O'Keefe"], ["email", "email@email.com"], ["location", "DE"], ["age", 37], ["gender", "Female"], ["bio", "If we generate the array, we can get to the RAM microchip through the redundant IB panel!"], ["usertype", "mentor"], ["created_at", "2020-02-05 18:23:56.882732"], ["updated_at", "2020-02-05 18:23:56.882732"]]
+  [1m[35m (1.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mMentor Create (0.4ms)[0m  [1m[32mINSERT INTO "mentors" ("first", "last", "email", "location", "age", "gender", "bio", "usertype", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["first", "Lamont"], ["last", "Kovacek"], ["email", "email@email.com"], ["location", "TN"], ["age", 21], ["gender", "Male"], ["bio", "If we parse the microchip, we can get to the HDD application through the 1080p THX alarm!"], ["usertype", "mentor"], ["created_at", "2020-02-05 18:23:56.887843"], ["updated_at", "2020-02-05 18:23:56.887843"]]
+  [1m[35m (0.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mMentor Create (0.3ms)[0m  [1m[32mINSERT INTO "mentors" ("first", "last", "email", "location", "age", "gender", "bio", "usertype", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["first", "Arnold"], ["last", "Kuphal"], ["email", "email@email.com"], ["location", "WY"], ["age", 20], ["gender", "Male"], ["bio", "Try to back up the SQL feed, maybe it will index the haptic bus!"], ["usertype", "mentor"], ["created_at", "2020-02-05 18:23:56.892437"], ["updated_at", "2020-02-05 18:23:56.892437"]]
+  [1m[35m (0.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mMentor Create (0.4ms)[0m  [1m[32mINSERT INTO "mentors" ("first", "last", "email", "location", "age", "gender", "bio", "usertype", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["first", "Von"], ["last", "Thiel"], ["email", "email@email.com"], ["location", "OH"], ["age", 26], ["gender", "Male"], ["bio", "The PCI alarm is down, override the neural panel so we can program the SMTP port!"], ["usertype", "mentor"], ["created_at", "2020-02-05 18:23:56.896802"], ["updated_at", "2020-02-05 18:23:56.896802"]]
+  [1m[35m (0.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mMentor Create (0.4ms)[0m  [1m[32mINSERT INTO "mentors" ("first", "last", "email", "location", "age", "gender", "bio", "usertype", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["first", "Bernardine"], ["last", "Conroy"], ["email", "email@email.com"], ["location", "NE"], ["age", 47], ["gender", "Male"], ["bio", "The PCI bandwidth is down, override the mobile transmitter so we can connect the HDD alarm!"], ["usertype", "mentor"], ["created_at", "2020-02-05 18:23:56.901372"], ["updated_at", "2020-02-05 18:23:56.901372"]]
+  [1m[35m (0.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mMentor Create (0.3ms)[0m  [1m[32mINSERT INTO "mentors" ("first", "last", "email", "location", "age", "gender", "bio", "usertype", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["first", "Marshall"], ["last", "Muller"], ["email", "email@email.com"], ["location", "OH"], ["age", 38], ["gender", "Female"], ["bio", "We need to back up the optical AI port!"], ["usertype", "mentor"], ["created_at", "2020-02-05 18:23:56.905779"], ["updated_at", "2020-02-05 18:23:56.905779"]]
+  [1m[35m (0.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mMentor Create (0.3ms)[0m  [1m[32mINSERT INTO "mentors" ("first", "last", "email", "location", "age", "gender", "bio", "usertype", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["first", "Tom"], ["last", "Haley"], ["email", "email@email.com"], ["location", "HI"], ["age", 46], ["gender", "Female"], ["bio", "You can't bypass the alarm without programming the neural GB matrix!"], ["usertype", "mentor"], ["created_at", "2020-02-05 18:23:56.910073"], ["updated_at", "2020-02-05 18:23:56.910073"]]
+  [1m[35m (0.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mMentor Create (0.3ms)[0m  [1m[32mINSERT INTO "mentors" ("first", "last", "email", "location", "age", "gender", "bio", "usertype", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["first", "Lore"], ["last", "Blanda"], ["email", "email@email.com"], ["location", "IL"], ["age", 42], ["gender", "Female"], ["bio", "You can't input the protocol without bypassing the bluetooth THX monitor!"], ["usertype", "mentor"], ["created_at", "2020-02-05 18:23:56.913632"], ["updated_at", "2020-02-05 18:23:56.913632"]]
+  [1m[35m (0.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mMentor Create (0.4ms)[0m  [1m[32mINSERT INTO "mentors" ("first", "last", "email", "location", "age", "gender", "bio", "usertype", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["first", "Rema"], ["last", "White"], ["email", "email@email.com"], ["location", "MN"], ["age", 40], ["gender", "Male"], ["bio", "You can't bypass the port without transmitting the virtual IB hard drive!"], ["usertype", "mentor"], ["created_at", "2020-02-05 18:23:56.917150"], ["updated_at", "2020-02-05 18:23:56.917150"]]
+  [1m[35m (1.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mMentor Create (0.5ms)[0m  [1m[32mINSERT INTO "mentors" ("first", "last", "email", "location", "age", "gender", "bio", "usertype", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["first", "Nicol"], ["last", "Bogisich"], ["email", "email@email.com"], ["location", "CT"], ["age", 48], ["gender", "Female"], ["bio", "Use the multi-byte ADP alarm, then you can bypass the redundant feed!"], ["usertype", "mentor"], ["created_at", "2020-02-05 18:23:56.922790"], ["updated_at", "2020-02-05 18:23:56.922790"]]
+  [1m[35m (0.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mMentor Create (0.4ms)[0m  [1m[32mINSERT INTO "mentors" ("first", "last", "email", "location", "age", "gender", "bio", "usertype", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["first", "Ed"], ["last", "Cruickshank"], ["email", "email@email.com"], ["location", "CO"], ["age", 26], ["gender", "Male"], ["bio", "Use the digital SSL alarm, then you can synthesize the bluetooth application!"], ["usertype", "mentor"], ["created_at", "2020-02-05 18:23:56.929082"], ["updated_at", "2020-02-05 18:23:56.929082"]]
+  [1m[35m (0.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mConnection Load (0.2ms)[0m  [1m[34mSELECT "connections".* FROM "connections"[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mMentor Load (0.2ms)[0m  [1m[34mSELECT "mentors".* FROM "mentors" WHERE "mentors"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mMentee Load (0.2ms)[0m  [1m[34mSELECT "mentees".* FROM "mentees" WHERE "mentees"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mConnection Create (0.5ms)[0m  [1m[32mINSERT INTO "connections" ("mentee_id", "mentor_id", "status", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["mentee_id", 1], ["mentor_id", 1], ["status", "approved"], ["created_at", "2020-02-05 18:23:56.970902"], ["updated_at", "2020-02-05 18:23:56.970902"]]
+  [1m[35m (1.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mMentor Load (0.1ms)[0m  [1m[34mSELECT "mentors".* FROM "mentors" WHERE "mentors"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mMentee Load (0.1ms)[0m  [1m[34mSELECT "mentees".* FROM "mentees" WHERE "mentees"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mConnection Create (0.5ms)[0m  [1m[32mINSERT INTO "connections" ("mentee_id", "mentor_id", "status", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["mentee_id", 1], ["mentor_id", 2], ["status", "approved"], ["created_at", "2020-02-05 18:23:56.980601"], ["updated_at", "2020-02-05 18:23:56.980601"]]
+  [1m[35m (1.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mMentor Load (0.1ms)[0m  [1m[34mSELECT "mentors".* FROM "mentors" WHERE "mentors"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mMentee Load (0.1ms)[0m  [1m[34mSELECT "mentees".* FROM "mentees" WHERE "mentees"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mConnection Create (0.3ms)[0m  [1m[32mINSERT INTO "connections" ("mentee_id", "mentor_id", "status", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["mentee_id", 1], ["mentor_id", 3], ["status", "approved"], ["created_at", "2020-02-05 18:23:56.988266"], ["updated_at", "2020-02-05 18:23:56.988266"]]
+  [1m[35m (0.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mMentor Load (0.1ms)[0m  [1m[34mSELECT "mentors".* FROM "mentors" WHERE "mentors"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mMentee Load (0.1ms)[0m  [1m[34mSELECT "mentees".* FROM "mentees" WHERE "mentees"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mConnection Create (0.3ms)[0m  [1m[32mINSERT INTO "connections" ("mentee_id", "mentor_id", "status", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["mentee_id", 1], ["mentor_id", 4], ["status", "pending"], ["created_at", "2020-02-05 18:23:56.995646"], ["updated_at", "2020-02-05 18:23:56.995646"]]
+  [1m[35m (0.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mMentor Load (0.1ms)[0m  [1m[34mSELECT "mentors".* FROM "mentors" WHERE "mentors"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[36mMentee Load (0.1ms)[0m  [1m[34mSELECT "mentees".* FROM "mentees" WHERE "mentees"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mConnection Create (0.5ms)[0m  [1m[32mINSERT INTO "connections" ("mentee_id", "mentor_id", "status", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["mentee_id", 1], ["mentor_id", 5], ["status", "pending"], ["created_at", "2020-02-05 18:23:57.002779"], ["updated_at", "2020-02-05 18:23:57.002779"]]
+  [1m[35m (0.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mMentor Load (0.1ms)[0m  [1m[34mSELECT "mentors".* FROM "mentors" WHERE "mentors"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mMentee Load (0.1ms)[0m  [1m[34mSELECT "mentees".* FROM "mentees" WHERE "mentees"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mConnection Create (0.3ms)[0m  [1m[32mINSERT INTO "connections" ("mentee_id", "mentor_id", "status", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["mentee_id", 1], ["mentor_id", 6], ["status", "pending"], ["created_at", "2020-02-05 18:23:57.009880"], ["updated_at", "2020-02-05 18:23:57.009880"]]
+  [1m[35m (1.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mMentor Load (0.2ms)[0m  [1m[34mSELECT "mentors".* FROM "mentors" WHERE "mentors"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  [1m[36mMentee Load (0.1ms)[0m  [1m[34mSELECT "mentees".* FROM "mentees" WHERE "mentees"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mConnection Create (0.3ms)[0m  [1m[32mINSERT INTO "connections" ("mentee_id", "mentor_id", "status", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["mentee_id", 1], ["mentor_id", 7], ["status", "pending"], ["created_at", "2020-02-05 18:23:57.017874"], ["updated_at", "2020-02-05 18:23:57.017874"]]
+  [1m[35m (0.8ms)[0m  [1m[36mcommit transaction[0m
+Started GET "/" for ::1 at 2020-02-05 13:24:19 -0500
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /Users/eskimo/.rvm/gems/ruby-2.6.1/gems/railties-6.0.2.1/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /Users/eskimo/.rvm/gems/ruby-2.6.1/gems/railties-6.0.2.1/lib/rails/templates/rails/welcome/index.html.erb (Duration: 11.6ms | Allocations: 481)
+Completed 200 OK in 26ms (Views: 17.7ms | ActiveRecord: 0.0ms | Allocations: 2642)
+
+
+Started GET "/" for ::1 at 2020-02-05 13:24:24 -0500
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /Users/eskimo/.rvm/gems/ruby-2.6.1/gems/railties-6.0.2.1/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /Users/eskimo/.rvm/gems/ruby-2.6.1/gems/railties-6.0.2.1/lib/rails/templates/rails/welcome/index.html.erb (Duration: 13.3ms | Allocations: 191)
+Completed 200 OK in 16ms (Views: 15.0ms | ActiveRecord: 0.0ms | Allocations: 726)
+
+
+Started GET "/api/v1/mentors" for ::1 at 2020-02-05 13:24:43 -0500
+Processing by Api::V1::MentorsController#index as HTML
+  [1m[36mMentor Load (0.4ms)[0m  [1m[34mSELECT "mentors".* FROM "mentors"[0m
+  ↳ app/controllers/api/v1/mentors_controller.rb:5:in `index'
+Completed 200 OK in 17ms (Views: 13.7ms | ActiveRecord: 0.9ms | Allocations: 13183)
+
+
+Started GET "/api/v1/mentees" for ::1 at 2020-02-05 13:25:19 -0500
+Processing by Api::V1::MenteesController#index as HTML
+  [1m[36mMentee Load (0.3ms)[0m  [1m[34mSELECT "mentees".* FROM "mentees"[0m
+  ↳ app/controllers/api/v1/mentees_controller.rb:5:in `index'
+Completed 200 OK in 19ms (Views: 16.4ms | ActiveRecord: 1.0ms | Allocations: 7765)
+
+
+Started GET "/api/v1/connections" for ::1 at 2020-02-05 13:25:26 -0500
+Processing by Api::V1::ConnectionsController#index as HTML
+  [1m[36mConnection Load (0.4ms)[0m  [1m[34mSELECT "connections".* FROM "connections"[0m
+  ↳ app/controllers/api/v1/connections_controller.rb:5:in `index'
+Completed 200 OK in 14ms (Views: 8.6ms | ActiveRecord: 1.8ms | Allocations: 6196)
+
+
