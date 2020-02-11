@@ -2,6 +2,16 @@ require 'faker'
 
 all_mentees = [
     {
+        first: "best mentee",
+        last: "ever",
+        location: Faker::Address.state_abbr,
+        gender: Faker::Gender.binary_type,
+        bio: Faker::Hacker.say_something_smart,
+        age: Faker::Number.between(from: 20, to: 50),
+        email: 'email@email.com',
+        usertype: "mentee"
+    },
+    {
         first: Faker::Name.unique.first_name,
         last: Faker::Name.last_name,
         location: Faker::Address.state_abbr,
@@ -11,13 +21,92 @@ all_mentees = [
         email: 'email@email.com',
         usertype: "mentee"
     },
-
+    {
+        first: Faker::Name.unique.first_name,
+        last: Faker::Name.last_name,
+        location: Faker::Address.state_abbr,
+        gender: Faker::Gender.binary_type,
+        bio: Faker::Hacker.say_something_smart,
+        age: Faker::Number.between(from: 20, to: 50),
+        email: 'email@email.com',
+        usertype: "mentee"
+    },
+    {
+        first: Faker::Name.unique.first_name,
+        last: Faker::Name.last_name,
+        location: Faker::Address.state_abbr,
+        gender: Faker::Gender.binary_type,
+        bio: Faker::Hacker.say_something_smart,
+        age: Faker::Number.between(from: 20, to: 50),
+        email: 'email@email.com',
+        usertype: "mentee"
+    },
+    {
+        first: Faker::Name.unique.first_name,
+        last: Faker::Name.last_name,
+        location: Faker::Address.state_abbr,
+        gender: Faker::Gender.binary_type,
+        bio: Faker::Hacker.say_something_smart,
+        age: Faker::Number.between(from: 20, to: 50),
+        email: 'email@email.com',
+        usertype: "mentee"
+    },
+    {
+        first: Faker::Name.unique.first_name,
+        last: Faker::Name.last_name,
+        location: Faker::Address.state_abbr,
+        gender: Faker::Gender.binary_type,
+        bio: Faker::Hacker.say_something_smart,
+        age: Faker::Number.between(from: 20, to: 50),
+        email: 'email@email.com',
+        usertype: "mentee"
+    },
+    {
+        first: Faker::Name.unique.first_name,
+        last: Faker::Name.last_name,
+        location: Faker::Address.state_abbr,
+        gender: Faker::Gender.binary_type,
+        bio: Faker::Hacker.say_something_smart,
+        age: Faker::Number.between(from: 20, to: 50),
+        email: 'email@email.com',
+        usertype: "mentee"
+    },
+    {
+        first: Faker::Name.unique.first_name,
+        last: Faker::Name.last_name,
+        location: Faker::Address.state_abbr,
+        gender: Faker::Gender.binary_type,
+        bio: Faker::Hacker.say_something_smart,
+        age: Faker::Number.between(from: 20, to: 50),
+        email: 'email@email.com',
+        usertype: "mentee"
+    },
+    {
+        first: Faker::Name.unique.first_name,
+        last: Faker::Name.last_name,
+        location: Faker::Address.state_abbr,
+        gender: Faker::Gender.binary_type,
+        bio: Faker::Hacker.say_something_smart,
+        age: Faker::Number.between(from: 20, to: 50),
+        email: 'email@email.com',
+        usertype: "mentee"
+    },
+    {
+        first: Faker::Name.unique.first_name,
+        last: Faker::Name.last_name,
+        location: Faker::Address.state_abbr,
+        gender: Faker::Gender.binary_type,
+        bio: Faker::Hacker.say_something_smart,
+        age: Faker::Number.between(from: 20, to: 50),
+        email: 'email@email.com',
+        usertype: "mentee"
+    },
 ]
 
 all_mentors = [
     {
-        first: Faker::Name.unique.first_name,
-        last: Faker::Name.last_name,
+        first: "best mentor",
+        last: "in the world",
         location: Faker::Address.state_abbr,
         gender: Faker::Gender.binary_type,
         bio: Faker::Hacker.say_something_smart,
@@ -301,6 +390,19 @@ all_connections = [
     {
         mentee_id: 1,
         mentor_id: 7,
+        status: "pending"
+    },
+    {
+        mentee_id: 2,
+        mentor_id: 1,
+        status: "pending"
+    },{
+        mentee_id: 3,
+        mentor_id: 1,
+        status: "pending"
+    },{
+        mentee_id: 4,
+        mentor_id: 1,
         status: "pending"
     },
 ]

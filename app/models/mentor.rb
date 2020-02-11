@@ -1,6 +1,6 @@
 class Mentor < ApplicationRecord
     has_many :connections
-    has_many :mentees, through: :connetions
+    has_many :mentees, through: :connections
 
 
 
