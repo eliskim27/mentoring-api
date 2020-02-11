@@ -1,17 +1,18 @@
 Rails.application.routes.draw do
-  namespace :api do
-    namespace :v1 do
-      resources :mentees
-      resources :mentors
-      resources :connections
+  resources :mentees
+  resources :mentors
+  resources :connections
 
 # CUSTOM ROUTES
 
+  # post "/connections", to: "connections#create"
+  delete "/connections/data/:id", to: "connections#destroy"
+  patch "/connections/data/:id", to: "connections#update"
 
 
-
-
-    end
-  end
+   
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
+
+
+# ActionController::RoutingError (No route matches [PATCH] "/mentors")
